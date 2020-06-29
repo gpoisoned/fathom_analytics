@@ -15,6 +15,10 @@ module FathomAnalytics
       post_request(path: "/api/sites", params: { name: name })
     end
 
+    def remove_site(id:)
+      delete_request(path: "/api/sites/#{id}")
+    end
+
     def sites
       get_request(path: "/api/sites")
     end
@@ -94,6 +98,23 @@ module FathomAnalytics
       response = connection.post(
         path: path,
         params: params,
+        auth_token: @auth_token
+      )
+
+      if response.status == 200
+        yield response if block_given?
+
+        JSON.parse(response.body)
+      else
+        raise FathomAnalytics::Error.new(response.status)
+      end
+    end
+
+    def delete_request(path:, authenticated: true)
+      ensure_auth_token if authenticated
+
+      response = connection.delete(
+        path: path,
         auth_token: @auth_token
       )
 

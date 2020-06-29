@@ -27,5 +27,13 @@ module FathomAnalytics
         req.body = params.to_json
       end
     end
+
+    def delete(path: '', auth_token:)
+      delete_url = @base_url + path
+      @_fd_connection.delete(delete_url) do |req|
+        req.headers['Content-Type'] = 'application/json'
+        req.headers['Cookie'] = "auth=#{auth_token}" if auth_token
+      end
+    end
   end
 end
