@@ -15,14 +15,15 @@ module FathomAnalytics
           req.params[k] = v
         end
         req.headers['Content-Type'] = 'application/json'
-        req.headers['Cookie'] = "auth=#{auth_token}"
+        req.headers['Cookie'] = "auth=#{auth_token}" if auth_token
       end
     end
 
-    def post(path: '', params:)
+    def post(path: '', params:, auth_token:)
       post_url = @base_url + path
       @_fd_connection.post(post_url) do |req|
         req.headers['Content-Type'] = 'application/json'
+        req.headers['Cookie'] = "auth=#{auth_token}" if auth_token
         req.body = params.to_json
       end
     end
