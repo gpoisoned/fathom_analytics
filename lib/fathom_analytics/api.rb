@@ -56,6 +56,7 @@ module FathomAnalytics
 
     def get_request(path, before = nil, after = nil, limit = nil, offset = nil)
       ensure_auth_token
+
       params = {}
       params['before'] = before if before
       params['after'] = after if after
@@ -83,10 +84,14 @@ module FathomAnalytics
 
     def set_auth_token(response)
       set_cookie_header = response.headers['set-cookie']
-      @auth_token = parse_auth_header(set_cookie_header) if set_cookie_header
+      @auth_token = parse_auth_header(set_cookie_header)
+
+      raise FathomAnalytics::Error.new("Failed to retrieve auth key") unless @auth_token
     end
 
     def parse_auth_header(header)
+      return nil if header.nil?
+
       matches = header.match(/auth=([a-zA-Z0-9\-_]+);/)
       matches[1] if matches
     end
