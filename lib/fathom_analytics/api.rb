@@ -1,5 +1,3 @@
-require 'pry'
-
 module FathomAnalytics
   class Api
     LIMIT = 50
@@ -70,7 +68,6 @@ module FathomAnalytics
         params: params
       )
 
-      binding.pry
       if response.status == 200
         JSON.parse(response.body)
       else
