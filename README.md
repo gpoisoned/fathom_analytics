@@ -1,3 +1,4 @@
+![CI Specs](https://github.com/gpoisoned/fathom_analytics/workflows/CI%20Specs/badge.svg?branch=master)
 # Fathom Analytics Ruby Client
 
 A Ruby interface to Fathom Analytics server.
