@@ -1,7 +1,7 @@
 ![CI Specs](https://github.com/gpoisoned/fathom_analytics/workflows/CI%20Specs/badge.svg?branch=master)
 # Fathom Analytics Ruby Client
 
-A Ruby interface to Fathom Analytics server.
+A Ruby interface for [Fathom Analytics server](https://github.com/usefathom/fathom).
 
 ## Installation
 
@@ -67,6 +67,15 @@ api.referrer_agg_stats(id: 1, before: 1609484399, after: 1577862000)
 api.referrer_agg_page_views_stats(id: 1, before: 1609484399, after: 1577862000)
 ```
 
+#### Pagination
+
+Pagination is supported through `offset` and `limit` params.
+``` ruby
+api.site_stats(id: 1, before: 1609484399, after: 1577862000, offset: 1, limit: 10)
+```
+The default values for paginations params are as follows:
+1. `limit`  = 50
+2. `offset` = 0
 
 ## Contributing
 
