@@ -1,7 +1,7 @@
 ![CI Specs](https://github.com/gpoisoned/fathom_analytics/workflows/CI%20Specs/badge.svg?branch=master)
 # Fathom Analytics Ruby Client
 
-A Ruby interface for [Fathom Analytics server](https://github.com/usefathom/fathom).
+A Ruby interface to [Fathom Analytics server](https://github.com/usefathom/fathom).
 
 ## Installation
 
@@ -27,7 +27,7 @@ Or install it yourself as:
 api = FathomAnalytics::Api.new(url: 'https://example.com', email: '', password: '')
 ```
 
-#### Listing all sites:
+#### Get all sites:
 ``` ruby
 api.sites
 ```
