@@ -37,6 +37,11 @@ api.sites
 api.add_site(name: 'demo')
 ```
 
+#### Remove a site:
+``` ruby
+api.remove_site(id: 1)
+```
+
 #### Get realtime site stats:
 ``` ruby
 api.site_realtime_stats(id: 1)
