@@ -32,6 +32,11 @@ api = FathomAnalytics::Api.new(url: 'https://example.com', email: '', password: 
 api.sites
 ```
 
+#### Add a new site:
+``` ruby
+api.add_site(name: 'demo')
+```
+
 #### Get realtime site stats:
 ``` ruby
 api.site_realtime_stats(id: 1)
