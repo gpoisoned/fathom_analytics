@@ -44,14 +44,13 @@ RSpec.describe FathomAnalytics::Api do
       end
 
       it "returns an array of sites" do
-        expect(@sites_response).to be_an_instance_of(Hash)
-        expect(@sites_response["Data"]).to be_an_instance_of(Array)
+        expect(@sites_response).to be_an_instance_of(Array)
       end
 
       it "returns site details" do
-        expect(@sites_response["Data"].first).to have_key("id")
-        expect(@sites_response["Data"].first).to have_key("name")
-        expect(@sites_response["Data"].first).to have_key("trackingId")
+        expect(@sites_response.first).to have_key("id")
+        expect(@sites_response.first).to have_key("name")
+        expect(@sites_response.first).to have_key("trackingId")
       end
     end
 
@@ -68,17 +67,16 @@ RSpec.describe FathomAnalytics::Api do
         end
 
         it "returns an array of sites" do
-          expect(@site_response).to be_an_instance_of(Hash)
-          expect(@site_response["Data"]).to be_an_instance_of(Array)
+          expect(@site_response).to be_an_instance_of(Array)
         end
 
         it "returns site details" do
-          expect(@site_response["Data"].first).to have_key("Visitors")
-          expect(@site_response["Data"].first).to have_key("Pageviews")
-          expect(@site_response["Data"].first).to have_key("Sessions")
-          expect(@site_response["Data"].first).to have_key("BounceRate")
-          expect(@site_response["Data"].first).to have_key("AvgDuration")
-          expect(@site_response["Data"].first).to have_key("Date")
+          expect(@site_response.first).to have_key("Visitors")
+          expect(@site_response.first).to have_key("Pageviews")
+          expect(@site_response.first).to have_key("Sessions")
+          expect(@site_response.first).to have_key("BounceRate")
+          expect(@site_response.first).to have_key("AvgDuration")
+          expect(@site_response.first).to have_key("Date")
         end
       end
 
@@ -94,8 +92,7 @@ RSpec.describe FathomAnalytics::Api do
         end
 
         it "returns an empty array" do
-          expect(@site_response).to be_an_instance_of(Hash)
-          expect(@site_response["Data"]).to be_empty
+          expect(@site_response).to be_empty
         end
       end
     end
