@@ -27,34 +27,34 @@ module FathomAnalytics
       get_request(path: "/api/sites/#{id}/stats/site/realtime")
     end
 
-    def site_stats(id:, before:, after:, limit: LIMIT, offset: 0)
+    def site_stats(id:, from:, to:, limit: LIMIT, offset: 0)
       path = "/api/sites/#{id}/stats/site"
-      get_request(path: path, before: before, after: after, limit: limit, offset: offset)
+      get_request(path: path, before: to, after: from, limit: limit, offset: offset)
     end
 
-    def site_agg_stats(id:, before:, after:, limit: LIMIT, offset: 0)
+    def site_agg_stats(id:, from:, to:, limit: LIMIT, offset: 0)
       path = "/api/sites/#{id}/stats/site/agg"
-      get_request(path: path, before: before, after: after, limit: limit, offset: offset)
+      get_request(path: path, before: to, after: from, limit: limit, offset: offset)
     end
 
-    def page_agg_stats(id:, before:, after:, limit: LIMIT, offset: 0)
+    def page_agg_stats(id:, from:, to:, limit: LIMIT, offset: 0)
       path = "/api/sites/#{id}/stats/pages/agg"
-      get_request(path: path, before: before, after: after, limit: limit, offset: offset)
+      get_request(path: path, before: to, after: from, limit: limit, offset: offset)
     end
 
-    def page_agg_page_views_stats(id:, before:, after:, limit: LIMIT, offset: 0)
+    def page_agg_page_views_stats(id:, from:, to:, limit: LIMIT, offset: 0)
       path = "/api/sites/#{id}/stats/pages/page_views"
-      get_request(path: path, before: before, after: after, limit: limit, offset: offset)
+      get_request(path: path, before: to, after: from, limit: limit, offset: offset)
     end
 
-    def referrer_agg_stats(id:, before:, after:, limit: LIMIT, offset: 0)
+    def referrer_agg_stats(id:, from:, to:, limit: LIMIT, offset: 0)
       path = "/api/sites/#{id}/stats/referrers/agg"
-      get_request(path: path, before: before, after: after, limit: limit, offset: offset)
+      get_request(path: path, before: to, after: from, limit: limit, offset: offset)
     end
 
-    def referrer_agg_page_views_stats(id:, before:, after:, limit: LIMIT, offset: 0)
+    def referrer_agg_page_views_stats(id:, from:, to:, limit: LIMIT, offset: 0)
       path = "/api/sites/#{id}/stats/referrers/page_views"
-      get_request(path: path, before: before, after: after, limit: limit, offset: offset)
+      get_request(path: path, before: to, after: from, limit: limit, offset: offset)
     end
 
     def authenticate
