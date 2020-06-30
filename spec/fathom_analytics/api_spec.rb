@@ -6,8 +6,8 @@ RSpec.describe FathomAnalytics::Api do
   let(:password) { ENV['TEST_PASSWORD'] }
 
   let(:site_id) { 1 }
-  let(:before) { 1609484399 }
-  let(:after) { 1577862000 }
+  let(:from) { 1577862000 }
+  let(:to) { 1609484399 }
 
   context "Given an instance of FathomAnalytics::Api" do
     before do
@@ -57,7 +57,7 @@ RSpec.describe FathomAnalytics::Api do
     describe '#site_stats' do
       before do
         VCR.use_cassette("/api/sites/#{site_id}/stats/site") do
-          @site_response = @client.site_stats(id: site_id, before: before, after: after)
+          @site_response = @client.site_stats(id: site_id, from: from, to: to)
         end
       end
 
