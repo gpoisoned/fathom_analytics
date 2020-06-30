@@ -6,6 +6,7 @@ RSpec.describe FathomAnalytics::Api do
   let(:password) { ENV['TEST_PASSWORD'] }
 
   let(:site_id) { 1 }
+  let(:invalid_site_id) { 11111111111111111111111 }
   let(:from) { 1577862000 }
   let(:to) { 1609484399 }
 
@@ -55,28 +56,47 @@ RSpec.describe FathomAnalytics::Api do
     end
 
     describe '#site_stats' do
-      before do
-        VCR.use_cassette("/api/sites/#{site_id}/stats/site") do
-          @site_response = @client.site_stats(id: site_id, from: from, to: to)
+      context 'When data is present for the site' do
+        before do
+          VCR.use_cassette("/api/sites/#{site_id}/stats/site") do
+            @site_response = @client.site_stats(id: site_id, from: from, to: to)
+          end
+        end
+
+        it "returns a response" do
+          expect(@site_response).to_not be_nil
+        end
+
+        it "returns an array of sites" do
+          expect(@site_response).to be_an_instance_of(Hash)
+          expect(@site_response["Data"]).to be_an_instance_of(Array)
+        end
+
+        it "returns site details" do
+          expect(@site_response["Data"].first).to have_key("Visitors")
+          expect(@site_response["Data"].first).to have_key("Pageviews")
+          expect(@site_response["Data"].first).to have_key("Sessions")
+          expect(@site_response["Data"].first).to have_key("BounceRate")
+          expect(@site_response["Data"].first).to have_key("AvgDuration")
+          expect(@site_response["Data"].first).to have_key("Date")
         end
       end
 
-      it "returns a response" do
-        expect(@site_response).to_not be_nil
-      end
+      context 'When data is not present for the site' do
+        before do
+          VCR.use_cassette("/api/sites/#{invalid_site_id}/stats/site") do
+            @site_response = @client.site_stats(id: invalid_site_id, from: from, to: to)
+          end
+        end
 
-      it "returns an array of sites" do
-        expect(@site_response).to be_an_instance_of(Hash)
-        expect(@site_response["Data"]).to be_an_instance_of(Array)
-      end
+        it "returns a response" do
+          expect(@site_response).to_not be_nil
+        end
 
-      it "returns site details" do
-        expect(@site_response["Data"].first).to have_key("Visitors")
-        expect(@site_response["Data"].first).to have_key("Pageviews")
-        expect(@site_response["Data"].first).to have_key("Sessions")
-        expect(@site_response["Data"].first).to have_key("BounceRate")
-        expect(@site_response["Data"].first).to have_key("AvgDuration")
-        expect(@site_response["Data"].first).to have_key("Date")
+        it "returns an empty array" do
+          expect(@site_response).to be_an_instance_of(Hash)
+          expect(@site_response["Data"]).to be_empty
+        end
       end
     end
   end
