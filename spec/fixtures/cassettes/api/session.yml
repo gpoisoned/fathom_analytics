@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<TEST_URL>/api/session"
+    body:
+      encoding: UTF-8
+      string: '{"Email":"<TEST_EMAIL>","Password":"<TEST_PASSWORD>"}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - Cowboy
+      connection:
+      - keep-alive
+      content-type:
+      - application/json
+      set-cookie:
+      - auth=MTU5MzQ4NTIxMnxEdi1CQkFFQ180SUFBUkFCRUFBQUlQLUNBQUVHYzNSeWFXNW5EQWtBQjNWelpYSmZhV1FGYVc1ME5qUUVBZ0FDfJqmi52uyV8yv6283F42CRT35wz98mRomOGTHzwelbZi;
+        Path=/; Expires=Thu, 30 Jul 2020 02:46:52 GMT; Max-Age=2592000
+      date:
+      - Tue, 30 Jun 2020 02:46:52 GMT
+      content-length:
+      - '14'
+      via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"Data":true}
+
+        '
+  recorded_at: Tue, 30 Jun 2020 02:46:52 GMT
+recorded_with: VCR 6.0.0

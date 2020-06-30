@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<TEST_URL>/api/session"
+    body:
+      encoding: UTF-8
+      string: '{"Email":"<TEST_EMAIL>","Password":"<TEST_PASSWORD>"}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - Cowboy
+      connection:
+      - keep-alive
+      content-type:
+      - application/json
+      set-cookie:
+      - auth=MTU5MzQ4NjU2M3xEdi1CQkFFQ180SUFBUkFCRUFBQUlQLUNBQUVHYzNSeWFXNW5EQWtBQjNWelpYSmZhV1FGYVc1ME5qUUVBZ0FDfCie1rqBdZGev3YNsWYy6pYbktwf-_NaCar3dSFO-br5;
+        Path=/; Expires=Thu, 30 Jul 2020 03:09:23 GMT; Max-Age=2592000
+      date:
+      - Tue, 30 Jun 2020 03:09:23 GMT
+      content-length:
+      - '14'
+      via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"Data":true}
+
+        '
+  recorded_at: Tue, 30 Jun 2020 03:09:23 GMT
+- request:
+    method: get
+    uri: "<TEST_URL>/api/sites/11111111111111111111111/stats/site?after=1577862000&before=1609484399&limit=50&offset=0"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v1.0.1
+      Cookie:
+      - auth=MTU5MzQ4NjU2M3xEdi1CQkFFQ180SUFBUkFCRUFBQUlQLUNBQUVHYzNSeWFXNW5EQWtBQjNWelpYSmZhV1FGYVc1ME5qUUVBZ0FDfCie1rqBdZGev3YNsWYy6pYbktwf-_NaCar3dSFO-br5
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - Cowboy
+      connection:
+      - keep-alive
+      content-type:
+      - application/json
+      date:
+      - Tue, 30 Jun 2020 03:09:24 GMT
+      content-length:
+      - '12'
+      via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"Data":[]}
+
+        '
+  recorded_at: Tue, 30 Jun 2020 03:09:24 GMT
+recorded_with: VCR 6.0.0

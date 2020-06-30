@@ -30,6 +30,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'rspec', '~> 3.0' 
-  spec.add_development_dependency "byebug"
-  spec.add_development_dependency "pry-byebug"
+  spec.add_development_dependency "byebug", '~> 11.1', '>= 11.1.3'
+  spec.add_development_dependency "pry-byebug", '~> 3.9'
+  spec.add_development_dependency "webmock", '~> 3.8', '>= 3.8.3'
+  spec.add_development_dependency "vcr", '~> 6.0'
+  spec.add_development_dependency "dotenv", '~> 2.7', '>= 2.7.5'
 end

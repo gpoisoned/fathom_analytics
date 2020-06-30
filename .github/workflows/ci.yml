@@ -33,4 +33,5 @@ jobs:
       env:
         RAILS_ENV: test
       run: |
+        cp .env.example .env
         bundle exec rspec
