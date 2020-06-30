@@ -49,39 +49,39 @@ api.site_realtime_stats(id: 1)
 
 #### Get site stats:
 ``` ruby
-api.site_stats(id: 1, before: 1609484399, after: 1577862000)
+api.site_stats(id: 1, from: 1577862000, to: 1609484399)
 ```
 
 #### Get aggregated site stats:
 ``` ruby
-api.site_agg_stats(id: 1, before: 1609484399, after: 1577862000)
+api.site_agg_stats(id: 1, from: 1577862000, to: 1609484399)
 ```
 
 #### Get aggregated page stats:
 ``` ruby
-api.page_agg_stats(id: 1, before: 1609484399, after: 1577862000)
+api.page_agg_stats(id: 1, from: 1577862000, to: 1609484399)
 ```
 
 #### Get aggregated page views:
 ``` ruby
-api.page_agg_page_views_stats(id: 1, before: 1609484399, after: 1577862000)
+api.page_agg_page_views_stats(id: 1, from: 1577862000, to: 1609484399)
 ```
 
 #### Get aggregated referrer stats:
 ``` ruby
-api.referrer_agg_stats(id: 1, before: 1609484399, after: 1577862000)
+api.referrer_agg_stats(id: 1, from: 1577862000, to: 1609484399)
 ```
 
 #### Get aggregated referrer page views:
 ``` ruby
-api.referrer_agg_page_views_stats(id: 1, before: 1609484399, after: 1577862000)
+api.referrer_agg_page_views_stats(id: 1, from: 1577862000, to: 1609484399)
 ```
 
 #### Pagination
 
 Pagination is supported through `offset` and `limit` params.
 ``` ruby
-api.site_stats(id: 1, before: 1609484399, after: 1577862000, offset: 1, limit: 10)
+api.site_stats(id: 1, from: 1577862000, to: 1609484399, offset: 1, limit: 10)
 ```
 The default values for paginations params are as follows:
 1. `limit`  = 50
