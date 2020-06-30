@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: "<TEST_URL>/api/sites"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v1.0.1
+      Cookie:
+      - auth=MTU5MzQ4NTIxMnxEdi1CQkFFQ180SUFBUkFCRUFBQUlQLUNBQUVHYzNSeWFXNW5EQWtBQjNWelpYSmZhV1FGYVc1ME5qUUVBZ0FDfJqmi52uyV8yv6283F42CRT35wz98mRomOGTHzwelbZi
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - Cowboy
+      connection:
+      - keep-alive
+      content-type:
+      - application/json
+      date:
+      - Tue, 30 Jun 2020 02:46:52 GMT
+      content-length:
+      - '152'
+      via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"Data":[{"id":1,"trackingId":"GJLXG","name":"test-1"},{"id":2,"trackingId":"GNCMD","name":"test-1"},{"id":3,"trackingId":"KBGGE","name":"test-3"}]}
+
+        '
+  recorded_at: Tue, 30 Jun 2020 02:46:52 GMT
+recorded_with: VCR 6.0.0
