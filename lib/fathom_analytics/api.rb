@@ -86,7 +86,7 @@ module FathomAnalytics
       )
 
       if response.status == 200
-        JSON.parse(response.body)
+        api_response(response.body)
       else
         raise FathomAnalytics::Error.new(response.status)
       end
@@ -104,7 +104,7 @@ module FathomAnalytics
       if response.status == 200
         yield response if block_given?
 
-        JSON.parse(response.body)
+        api_response(response.body)
       else
         raise FathomAnalytics::Error.new(response.status)
       end
@@ -121,10 +121,17 @@ module FathomAnalytics
       if response.status == 200
         yield response if block_given?
 
-        JSON.parse(response.body)
+        api_response(response.body)
       else
         raise FathomAnalytics::Error.new(response.status)
       end
+    end
+
+    def api_response(response_body)
+      parsed = JSON.parse(response_body)
+      parsed["Data"] || {}
+    rescue JSON::ParserError
+      {}
     end
 
     def ensure_auth_token
