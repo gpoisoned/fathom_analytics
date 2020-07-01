@@ -27,6 +27,12 @@ Or install it yourself as:
 api = FathomAnalytics::Api.new(url: 'https://example.com', email: '', password: '')
 ```
 
+#### Authentication:
+``` ruby
+api.authenticate
+```
+Note: Any other api call without prior authentication will implicitly call `authenticate`.
+
 #### Get all sites:
 ``` ruby
 api.sites
@@ -81,11 +87,22 @@ api.referrer_agg_page_views_stats(id: 1, from: 1577862000, to: 1609484399)
 
 Pagination is supported through `offset` and `limit` params.
 ``` ruby
-api.site_stats(id: 1, from: 1577862000, to: 1609484399, offset: 10, limit: 10) # Second page
+api.page_agg_page_views_stats(id: 1, from: 1577862000, to: 1609484399, offset: 10, limit: 10) # Second page
 ```
 The default values for paginations params are as follows:
 1. `limit`  = 50
 2. `offset` = 0
+
+#### Handling API Errors
+
+The api call will raise an error `FathomAnalytics::Error` when it fails.
+``` ruby
+begin
+  api.authenticate
+rescue FathomAnalytics::Error => e
+  # Log and handle the error
+end
+```
 
 ## Contributing
 
