@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: "<TEST_URL>/api/session"
+    body:
+      encoding: UTF-8
+      string: '{"Email":"<TEST_EMAIL>","Password":"<TEST_PASSWORD>"}'
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v1.0.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - Cowboy
+      connection:
+      - keep-alive
+      content-type:
+      - application/json
+      set-cookie:
+      - auth=MTU5MzYxMzM2NHxEdi1CQkFFQ180SUFBUkFCRUFBQUlQLUNBQUVHYzNSeWFXNW5EQWtBQjNWelpYSmZhV1FGYVc1ME5qUUVBZ0FDfAIiCINoO0v1qdl2aR38WF-MfIpxreK02BNZfH5GbYO8;
+        Path=/; Expires=Fri, 31 Jul 2020 14:22:44 GMT; Max-Age=2592000
+      date:
+      - Wed, 01 Jul 2020 14:22:44 GMT
+      content-length:
+      - '14'
+      via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"Data":true}
+
+        '
+  recorded_at: Wed, 01 Jul 2020 14:22:44 GMT
+- request:
+    method: get
+    uri: "<TEST_URL>/api/sites/1/stats/referrers/agg?after=1577862000&before=1609484399&limit=50&offset=0"
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Faraday v1.0.1
+      Cookie:
+      - auth=MTU5MzYxMzM2NHxEdi1CQkFFQ180SUFBUkFCRUFBQUlQLUNBQUVHYzNSeWFXNW5EQWtBQjNWelpYSmZhV1FGYVc1ME5qUUVBZ0FDfAIiCINoO0v1qdl2aR38WF-MfIpxreK02BNZfH5GbYO8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      server:
+      - Cowboy
+      connection:
+      - keep-alive
+      content-type:
+      - application/json
+      date:
+      - Wed, 01 Jul 2020 14:22:45 GMT
+      transfer-encoding:
+      - chunked
+      via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: '{"Data":[{"Hostname":"https://www.google.com","Pathname":"","Group":"Google","Visitors":874,"Pageviews":1156,"BounceRate":0.3209342560553633,"AvgDuration":53.733022761072064,"KnownDurations":0,"Date":"0001-01-01T00:00:00Z"},{"Hostname":"https://example.com","Pathname":"","Group":"","Visitors":17,"Pageviews":93,"BounceRate":0.07526881720430108,"AvgDuration":32.34444444444444,"KnownDurations":0,"Date":"0001-01-01T00:00:00Z"}]}
+
+        '
+  recorded_at: Wed, 01 Jul 2020 14:22:44 GMT
+recorded_with: VCR 6.0.0

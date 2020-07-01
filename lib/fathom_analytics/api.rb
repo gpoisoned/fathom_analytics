@@ -43,7 +43,7 @@ module FathomAnalytics
     end
 
     def page_agg_page_views_stats(id:, from:, to:, limit: LIMIT, offset: 0)
-      path = "/api/sites/#{id}/stats/pages/page_views"
+      path = "/api/sites/#{id}/stats/pages/agg/pageviews"
       get_request(path: path, before: to, after: from, limit: limit, offset: offset)
     end
 
@@ -53,7 +53,7 @@ module FathomAnalytics
     end
 
     def referrer_agg_page_views_stats(id:, from:, to:, limit: LIMIT, offset: 0)
-      path = "/api/sites/#{id}/stats/referrers/page_views"
+      path = "/api/sites/#{id}/stats/referrers/agg/pageviews"
       get_request(path: path, before: to, after: from, limit: limit, offset: offset)
     end
 
