@@ -1,4 +1,4 @@
-![CI Specs](https://github.com/gpoisoned/fathom_analytics/workflows/CI%20Specs/badge.svg?branch=master)
+![CI Specs](https://github.com/gpoisoned/fathom_analytics/workflows/CI%20Specs/badge.svg?branch=master) [![Gem Version](https://badge.fury.io/rb/fathom_analytics.svg)](https://badge.fury.io/rb/fathom_analytics)
 # Fathom Analytics Ruby Client
 
 A Ruby interface to [Fathom Analytics server](https://github.com/usefathom/fathom).
@@ -81,7 +81,7 @@ api.referrer_agg_page_views_stats(id: 1, from: 1577862000, to: 1609484399)
 
 Pagination is supported through `offset` and `limit` params.
 ``` ruby
-api.site_stats(id: 1, from: 1577862000, to: 1609484399, offset: 1, limit: 10)
+api.site_stats(id: 1, from: 1577862000, to: 1609484399, offset: 10, limit: 10) # Second page
 ```
 The default values for paginations params are as follows:
 1. `limit`  = 50
